@@ -1,27 +1,31 @@
 {% set name = "esi-core" %}
-{% set version = "1.0.1" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/esi-core-{{ version }}.tar.gz
-  sha256: c9701bf9eca107d58640c5eb741ac4afb993ba72333be6cac3a15dd5936342b1
+  url: https://code.usgs.gov/ghsc/esi/esi-core/-/archive/{{ version }}/esi-core-{{ version }}.tar.gz
+  sha256: c1c828af4fc9a169a75fb178a692e4c253c05d065f8a768f0b2b307b2d3e8766
 
 build:
+  skip: true  # [py>=311]
   skip: true  # [py<38]
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  script:
+    - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [unix]
+    - set SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [win]
+    - {{ PYTHON }} -m pip install . -vv
+  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
     - python
-    - cython
-    - numpy
-    - setuptools-scm
+    - cython >=0.29.23,<3
+    - numpy >=1.21
+    - setuptools-scm >=3.4
     - pip
   run:
     - python
@@ -45,3 +49,4 @@ about:
 extra:
   recipe-maintainers:
     - ocefpaf
+    - emthompson-usgs
