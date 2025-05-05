@@ -30,6 +30,7 @@ requirements:
     - python
     - cython >=0.29.23,<3
     - numpy
+    - setuptools
     - setuptools-scm >=3.4
     - pip
   run:
