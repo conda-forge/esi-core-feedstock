@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.2.5"
+  version: "1.2.6"
 
 package:
   name: esi-core
@@ -9,15 +9,14 @@ package:
 
 source:
   url: https://code.usgs.gov/ghsc/esi/esi-core/-/archive/v${{ version }}/esi-core-v${{ version }}.tar.gz
-  sha256: 25ead647542d4e2577060f4b892c083bd429ca9bda8c3dff76b68522a755c3c7
+  sha256: d2b338690e1e137eea3a7c5175e5aade7b068068082d34b1f3a27a411b3e2ab5
 
 build:
   script:
     - if: not win
       then:
         - export SETUPTOOLS_SCM_PRETEND_VERSION=${{ version }}
-    - if: win
-      then:
+      else:
         - set SETUPTOOLS_SCM_PRETEND_VERSION=${{ version }}
     - ${{ PYTHON }} -m pip install . -vv
   number: 0
