@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.2.6"
+  version: "1.2.7"
 
 package:
   name: esi-core
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://code.usgs.gov/ghsc/esi/esi-core/-/archive/v${{ version }}/esi-core-v${{ version }}.tar.gz
-  sha256: d2b338690e1e137eea3a7c5175e5aade7b068068082d34b1f3a27a411b3e2ab5
+  sha256: 1d193d52d3de9b090cd2cf060735d1d3207fd651af494e0e29fafca633c3f4c1
 
 build:
   script:
