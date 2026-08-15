@@ -234,6 +234,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@cbworden-usgs](https://github.com/cbworden-usgs/)
 * [@emthompson-usgs](https://github.com/emthompson-usgs/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 
