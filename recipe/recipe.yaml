@@ -45,8 +45,7 @@ requirements:
     - if: linux
       then:
         - libgomp
-    - if: osx
-      then:
+      else:
         - llvm-openmp
   run:
     - python
@@ -73,3 +72,4 @@ extra:
     - cbworden-usgs
     - ocefpaf
     - emthompson-usgs
+
