@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.2.8"
+  version: "1.2.9"
 
 package:
   name: esi-core
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://code.usgs.gov/ghsc/esi/esi-core/-/archive/v${{ version }}/esi-core-v${{ version }}.tar.gz
-  sha256: 8aa332d5a89c3ad5e4a677a1ac9e9b4f978e4ea21394b97b0f02efb8ae49314a
+  sha256: e6178b0e74d72ba5792f1ca5a6268870afd657005fac69ac1848d2b643227896
 
 build:
   script:
@@ -22,7 +22,7 @@ build:
       then:
         - export OMP_PREFIX=${PREFIX}
     - ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
-  number: 1
+  number: 0
   skip: match(python, ">=3.14")
 
 requirements:
@@ -45,8 +45,7 @@ requirements:
     - if: linux
       then:
         - libgomp
-    - if: osx
-      then:
+      else:
         - llvm-openmp
   run:
     - python
